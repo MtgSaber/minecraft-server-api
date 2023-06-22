@@ -15,7 +15,11 @@ public sealed interface MinecraftServerProcessState {
     sealed interface StopResult extends MinecraftServerProcessState {}
     sealed interface StartingPoint extends MinecraftServerProcessState {}
 
-    @With record NotInitialized() implements StartingPoint, NotRunning, MinecraftServerProcessState {}
+    enum NotInitialized implements StartingPoint, NotRunning, MinecraftServerProcessState {
+        instance;
+
+        public static NotInitialized getInstance() { return instance; }
+    }
     @With record Initializing(
             String serverConfigPath
     ) implements NotRunning, MinecraftServerProcessState {}
