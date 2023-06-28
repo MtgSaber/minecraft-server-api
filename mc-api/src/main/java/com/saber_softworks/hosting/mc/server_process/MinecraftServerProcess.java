@@ -7,8 +7,8 @@ import io.vavr.Tuple2;
 import io.vavr.control.Option;
 
 public interface MinecraftServerProcess {
-    Option<Tuple2<Initializing, Function0<InitializationResult>>> submitInitializationRequestAndGetResultCallback(String pathToConfigYml);
-    Option<Tuple2<Starting, Function0<StartResult>>> submitStartRequestAndGetResultCallback(MinecraftServerConfig serverConfig);
-    Option<Tuple2<Stopping, Function0<StopResult>>> submitStopRequestAndGetResultCallback();
+    MaybeThunkReceiptWithTimedCallback<Initializing, InitializationResult> submitInitializationRequestAndGetResultCallback(String pathToConfigYml);
+    MaybeThunkReceiptWithTimedCallback<Starting, StartResult> submitStartRequestAndGetResultCallback(MinecraftServerConfig serverConfig);
+    MaybeThunkReceiptWithTimedCallback<Stopping, StopResult> submitStopRequestAndGetResultCallback();
     MinecraftServerProcessState getState();
 }
