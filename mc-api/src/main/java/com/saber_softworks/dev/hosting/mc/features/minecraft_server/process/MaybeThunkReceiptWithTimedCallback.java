@@ -1,4 +1,4 @@
-package com.saber_softworks.hosting.mc.server_process;
+package com.saber_softworks.dev.hosting.mc.features.minecraft_server.process;
 
 import io.vavr.Function1;
 import io.vavr.Tuple2;

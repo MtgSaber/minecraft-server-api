@@ -1,4 +1,4 @@
-package com.saber_softworks.hosting.mc.configs;
+package com.saber_softworks.dev.hosting.mc.configs;
 
 import io.vavr.collection.Map;
 import io.vavr.collection.Seq;

@@ -1,4 +1,4 @@
-package com.saber_softworks.hosting.mc.configs;
+package com.saber_softworks.dev.hosting.mc.configs;
 
 import lombok.With;
 

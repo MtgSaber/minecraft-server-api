@@ -1,7 +1,7 @@
-package com.saber_softworks.hosting.mc.server_process;
+package com.saber_softworks.dev.hosting.mc.features.minecraft_server.process;
 
-import com.saber_softworks.hosting.mc.configs.MinecraftServerConfig;
-import com.saber_softworks.hosting.mc.server_process.MinecraftServerProcessState.*;
+import com.saber_softworks.dev.hosting.mc.configs.MinecraftServerConfig;
+import com.saber_softworks.dev.hosting.mc.features.minecraft_server.process.MinecraftServerProcessState.*;
 import io.vavr.*;
 import io.vavr.control.Option;
 import org.tinylog.Logger;
