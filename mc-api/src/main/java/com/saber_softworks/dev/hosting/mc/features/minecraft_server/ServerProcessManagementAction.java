@@ -7,6 +7,10 @@ import lombok.With;
 import java.util.UUID;
 
 public sealed interface ServerProcessManagementAction {
+    sealed interface FromServerProcess extends ServerProcessManagementAction {
+        MinecraftServerProcessState currentProcessState();
+    }
+
     sealed interface Request extends ServerProcessManagementAction {
         @NonNull UUID uuid();
     }
@@ -16,16 +20,15 @@ public sealed interface ServerProcessManagementAction {
     record ExportServerData(@NonNull UUID uuid) implements Request {}
 
 
-    sealed interface Response extends ServerProcessManagementAction {
+    sealed interface Response extends FromServerProcess {
         @NonNull Request request();
-        @NonNull MinecraftServerProcessState currentProcessState();
     }
     record Rejected(@NonNull Request request, @NonNull MinecraftServerProcessState currentProcessState) implements Response {}
     record Accepted(@NonNull Request request, @NonNull MinecraftServerProcessState currentProcessState) implements Response {}
 
-    @With record ResponseAck(@NonNull Response response) {}
+    @With record ResponseAck(@NonNull Response response) implements ServerProcessManagementAction {}
 
     @With record ChangeNotification(
-            @NonNull MinecraftServerProcessState state
-    ) implements ServerProcessManagementAction {}
+            @NonNull MinecraftServerProcessState currentProcessState
+    ) implements FromServerProcess {}
 }

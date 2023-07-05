@@ -9,6 +9,7 @@ import lombok.With;
 @With
 public record MinecraftServerConfig(
         @NonNull String pathToServerDirectory,
+        @NonNull String serverJarFilename,
         @NonNull Option<String> pathToJreIfNotDefaultJavaAlias,
         @NonNull Map<String, String> jvmArgs,
         @NonNull Seq<String> serverJarArgs

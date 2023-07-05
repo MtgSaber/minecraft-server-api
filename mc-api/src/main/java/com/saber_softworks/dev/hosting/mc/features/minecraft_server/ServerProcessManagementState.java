@@ -13,13 +13,13 @@ import java.util.UUID;
 @With
 public record ServerProcessManagementState(
         @NonNull MinecraftServerProcessState currentProcessState,
-        @NonNull Set<UUID> openRequests,
+        @NonNull Map<UUID, ServerProcessManagementAction.Request> openRequests,
         @NonNull Map<UUID, ServerProcessManagementAction.Response> unacknowledgedResponses
 ) {
-    public ServerProcessManagementState initial() {
+    public static ServerProcessManagementState initial() {
         return new ServerProcessManagementState(
                 MinecraftServerProcessState.NotInitialized.instance,
-                Sets.empty(),
+                Maps.empty(),
                 Maps.empty()
         );
     }

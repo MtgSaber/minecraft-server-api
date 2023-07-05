@@ -8,7 +8,7 @@ import io.vavr.control.Option;
 
 public class Main {
     public static void main(String[] args) {
-        Store<State> store = Redux.createStore(State.getDefault(), Option.none(), List.empty());
+        Store<State> store = Redux.createStore(State.initial(), Option.none(), List.empty());
         // TODO: create features and pass store as registrar
     }
 }

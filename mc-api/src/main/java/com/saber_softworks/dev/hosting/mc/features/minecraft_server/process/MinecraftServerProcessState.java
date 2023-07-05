@@ -34,7 +34,8 @@ public sealed interface MinecraftServerProcessState {
             @NonNull Initialized initializationState
     ) implements NotRunning, MinecraftServerProcessState {}
     @With record FailedToStart(
-            @NonNull Initialized initializationState
+            @NonNull Initialized initializationState,
+            @NonNull Exception cause
     ) implements NotRunning, StartResult, MinecraftServerProcessState {}
     @With record Running(
             @NonNull Initialized initializedState,
